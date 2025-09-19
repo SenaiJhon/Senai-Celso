@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Perfil do Usuário</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container mt-5">
+  <!-- Layout do Perfil -->
+  <div class="row mb-4">
+    <div class="col-md-4 text-center">
+      <!-- Imagem de Perfil -->
+      <img src="https://poracaso.com/wp-content/uploads/2019/09/eggon-joao-silva-02.jpg" alt="Foto de Perfil" class="img-fluid rounded-circle mb-3">
+      <!-- Botões de Ação -->
+      <button class="btn btn-outline-primary me-2">
+        <i class="bi bi-pencil-square"></i> Editar Perfil
+      </button>
+      <button class="btn btn-success">
+        <i class="bi bi-person-plus"></i> Adicionar Amigo
+      </button>
+    </div>
+    <div class="col-md-8">
+      <h2>João da Silva</h2>
+      <p class="text-muted">Desenvolvedor Front-End apaixonado por tecnologia, café e boas conversas. Sempre em busca de novos desafios e aprendizados.</p>
+    </div>
+  </div>
+
+  <!-- Navs & Tabs -->
+  <ul class="nav nav-tabs" id="profileTabs" role="tablist">
+    <li class="nav-item" role="presentation">
+      <button class="nav-link active" id="postagens-tab" data-bs-toggle="tab" data-bs-target="#postagens" type="button" role="tab">Minhas Postagens</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="amigos-tab" data-bs-toggle="tab" data-bs-target="#amigos" type="button" role="tab">Lista de Amigos</button>
+    </li>
+    <li class="nav-item" role="presentation">
+      <button class="nav-link" id="fotos-tab" data-bs-toggle="tab" data-bs-target="#fotos" type="button" role="tab">Galeria de Fotos</button>
+    </li>
+  </ul>
+
+  <!-- Conteúdo das Abas -->
+  <div class="tab-content mt-3" id="profileTabsContent">
+    <!-- Postagens -->
+    <div class="tab-pane fade show active" id="postagens" role="tabpanel">
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Primeira Postagem</h5>
+          <p class="card-text">Hoje comecei um novo projeto com React e Bootstrap. Está ficando incrível!</p>
+        </div>
+      </div>
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Atualização de Status</h5>
+          <p class="card-text">Finalizei o curso de UI/UX Design. Recomendo demais!</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Amigos -->
+    <div class="tab-pane fade" id="amigos" role="tabpanel">
+      <ul class="list-group">
+        <li class="list-group-item">Maria Oliveira</li>
+        <li class="list-group-item">Carlos Mendes</li>
+        <li class="list-group-item">Ana Costa</li>
+      </ul>
+    </div>
+
+    <!-- Galeria de Fotos -->
+    <div class="tab-pane fade" id="fotos" role="tabpanel">
+      <div class="row">
+        <div class="col-4 mb-3">
+          <img src="https://img.freepik.com/fotos-gratis/vista-traseira-do-programador-trabalhando-a-noite-toda_1098-18697.jpg" class="img-thumbnail" alt="Foto 1">
+        </div>
+        <div class="col-4 mb-3">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTzlJ_wD2TBWInOE9Crr988Gg-w-GT6bqk_w&s" class="img-thumbnail" alt="Foto 2">
+        </div>
+        <div class="col-4 mb-3">
+          <img src="https://thumbs.dreamstime.com/b/programador-sentado-em-uma-mesa-discutindo-com-equipe-mista-de-desenvolvedores-software-sobre-intelig%C3%AAncia-artificial-cima-da-239072269.jpg" class="img-thumbnail" alt="Foto 3">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Bootstrap JS + Icons -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+</body>
+</html>
