@@ -52,6 +52,23 @@ app.post('/salvar', (req, res) => {
     });
 });
 
+
+app.get('/busca', (req,res)=>{
+    res.sendFile(path.join(__dirname, 'public', 'busca.html'));
+});
+
+//API de busca por nome
+app.get('/api/busca',(req,res)=>{
+    const{nome}= req.query;
+    if(!nome) return res.json([]);
+    
+    const sql = 'SELECT * FROM usuarios WHERE nome LIKE ?';
+    db.query(sql,[`%${nome}%`] , (err , results) =>{
+        if(err) return res.status(500).json({error: 'ERRO ao buscar no banco'});
+        res.json(results);
+    });
+    
+});
 //inicia o sever
 
-app.listen(3030 , () => console.log('Servidor rodando em http://localhost:3030'));
+app.listen(3030 , () => console.log('Servidor rodando em http://localhost:3030/busca'));
