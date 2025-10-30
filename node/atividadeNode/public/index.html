@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Produtos</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background: #f7f7f7;
+            padding: 40px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cadastro de Produtos</h1>
+    <form action="/salvar" method="post">
+        <input type="text" name="nome" placeholder="Nome do Produto" required><br>
+        <input type="text" name="descricao" placeholder="descricao do produto" required><br>
+        <input  type="text" name="preco" placeholder="preço" required><br>
+        <button type="submit">Cadastrar</button>
+    </form>
+</body>
+</html>

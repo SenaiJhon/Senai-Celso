@@ -17,7 +17,7 @@ const db = mysql.createConnection({
     host: 'localhost', //seu hoste(localhost)
     user: 'root', //seu user mysql
     password: 'cimatec', // sua senha mysql
-    database: 'aula2910' // seu database
+    database: 'Loja' // seu database
 })
 
 
@@ -41,9 +41,9 @@ app.get('/', (req, res) => {
 //Rota para receber o Post do formulário
 
 app.post('/salvar', (req, res) => {
-    const { nome, email, telefone } = req.body;
-    const sql = 'INSERT INTO usuarios(nome , email, telefone) Value ( ? , ? , ?)';
-    db.query(sql, [nome, email, telefone], (err) => {
+    const { nome, descricao, preco } = req.body;
+    const sql = 'INSERT INTO produtos(nome , descricao, preco) Value ( ? , ? , ?)';
+    db.query(sql, [nome, descricao, parseFloat(preco)], (err) => {
         if (err) {
             console.error('Erro ao inserir dados:', err.message);
             return res.send('❌ Erro ao salvar no banco.');
