@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATV PONT</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Questão 1 -->
+    <div class="Q1">
+        <h1>Tabuada até 10</h1>
+        <input type="number" id="NumeroTabuada">
+        <button onclick="Tabuada()">Tabuada</button>
+        <p id="Tabuadap"></p>
+    </div>
+    <!-- Questão 2 -->
+    <div class="Q2">
+        <h1>Soma De Pares</h1>
+        <p id="Q2R">a soma de todos os números pares de 2 a 100 é: </p>
+        <button onclick="SomaDosPares()">PAR</button>
+    </div>
+    <!-- Quesrão 3 -->
+    <div class="Q3">
+        <h1>Números primos </h1>
+        <p id="primos">Os numeros primos de 1 a 100 : </p>
+        <button onclick="primosfunc()">Primos</button>
+    </div>
+    <!-- Questão 4 -->
+    <div class="Q4">
+        <h1>Sequencia de fibonacci de 1 a 15</h1>
+        <p id="fibonacci"> A Sequencia de fibonacci de 1 a 15 é:</p>
+        <button onclick="fibonacciLoop()">Sequencia</button>
+    </div>
+    <!-- Questão 5 -->
+    <div class="Q5">
+        <h1>Contagem regressiva</h1>
+        <input type="number" id="CountN">
+        <button onclick="Contagem()">Contagem</button>
+        <p id="ContagemRegressiva"></p>
+    </div>
+    <!-- Questão 6 -->
+    <div class="Q6">
+        <h1>Multiplo de 3 e 5</h1>
+        <p id="multi5"></p>
+        <button onclick="multiplos()">multiplos</button>
+    </div>
+    <!-- Questão 7 -->
+    <div class="Q7">
+        <h1>Fatorial</h1>
+        <input type="number" id="fatorialN">
+        <button onclick="fatorial()">Fatorial</button>
+        <p id="Rfatorial"></p>
+    </div>
+    <!-- Questão 8 -->
+    <div class="Q8">
+        <h1>Inverter</h1>
+        <input type="text" id="invert">
+        <button onclick="inverter()">invertendo</button>
+        <p id="invertido"></p>
+    </div>
+    <!-- Questão 10 -->
+    <div class="Q9">
+        <h1>Contagem De Vogais</h1>
+        <input type="text" id="Frase">
+        <button onclick="ContarVogais()">Contando Vogais</button>
+        <p id="ResultadoVogais"></p>
+    </div>
+    <!-- Questão 10 -->
+    <div class="Q10">
+        <h1>Soma dos Digitos</h1>
+        <input type="text" id="digitos">
+        <button onclick="somaDigitos()">Sumando digitos</button>
+        <p id="ResultadoDigitos"></p>
+    </div>
+    <!-- Questão 11 -->
+    <div class="Q11">
+        <h1>Adivinhe o número</h1>
+        <input type="number" id="palpites">
+        <button onclick="AdivinheONumero()">Advinhar</button>
+        <p id="NumeroAdivinhado"></p>
+    </div>
+    <!-- Questão 12 -->
+    <div class="Q12">
+        <h1>Usuário e senha</h1>
+        <input type="text" id="Usuario">
+        <input type="password" id="senha12">
+        <button onclick="verificarLogin()">Enviar</button>
+    </div>
+    <!-- Questão 13 -->
+    <div class="Q13">
+        <h1>Caixa Registradora</h1>
+        <input type="number" id="valorCaixa">
+        <button onclick="registradora()">Adicionar</button>
+        <p id="totalCaixa">Total: R$ 0</p>
+    </div>
+
+    <!-- Questão 14 -->
+    <div class="Q14">
+        <h1>Contador de Positivos</h1>
+        <input type="number" id="numeroPositivo">
+        <button onclick="contarPositivos()">Enviar</button>
+        <p id="resultadoPositivos"></p>
+    </div>
+
+    <!-- Questão 15 -->
+    <div class="Q15">
+        <h1>Cálculo de Média</h1>
+        <input type="number" id="notaMedia">
+        <button onclick="calcularMedia()">Adicionar Nota</button>
+        <p id="resultadoMedia"></p>
+    </div>
+
+    <!-- Questão 16 -->
+    <div class="Q16">
+        <h1>Sorteio de Dados</h1>
+        <button onclick="sortearDados()">Sortear</button>
+        <p id="resultadoDados"></p>
+    </div>
+
+    <!-- Questão 17 -->
+    <div class="Q17">
+        <h1>Verificador de Palíndromo</h1>
+        <input type="text" id="palavraPalindromo">
+        <button onclick="verificarPalindromo()">Verificar</button>
+        <p id="resultadoPalindromo"></p>
+    </div>
+
+    <!-- Questão 18 -->
+    <div class="Q18">
+        <h1>Números Ímpares</h1>
+        <input type="number" id="numeroImpar">
+        <button onclick="mostrarImpares()">Mostrar Ímpares</button>
+        <p id="resultadoImpar"></p>
+    </div>
+
+    <!-- Questão 19 -->
+    <div class="Q19">
+        <h1>Contador de Tentativas</h1>
+        <input type="password" id="senhaTentativa">
+        <button onclick="verificarSenha()">Verificar</button>
+        <p id="tentativasSenha"></p>
+    </div>
+
+    <!-- Questão 20 -->
+    <div class="Q20">
+        <h1>Progressão Aritmética</h1>
+        <input type="number" id="termoInicial" placeholder="Primeiro termo">
+        <input type="number" id="razaoPA" placeholder="Razão">
+        <button onclick="gerarPA()">Gerar PA</button>
+        <p id="resultadoPA"></p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

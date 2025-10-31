@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ATVDD JS</title>
+</head>
+
+<body>
+
+    <!-- QUESTÃO 1 -->
+    <h1>Questão 1</h1>
+    <input type="text" name="nome" id="nome" placeholder="DIGITE SEU NOME">
+    <button onclick="peganome()">Captura Nome</button><br>
+    <br>
+    <p id="escrevenm">aqui</p>
+    <br>
+
+
+
+    <!-- QUESTÃO 2 -->
+    <h1>QUESTÃO 2</h1>
+    <label>numero 1</label>
+    <input type="number" name="n1" id="n1">
+    <label>numero 2</label>
+    <input type="number" name="n2" id="n2">
+    <button onclick="soma()">=</button>
+    <h5> resultado: </h5>
+    <h6 id="resultado">---</h6>
+
+
+    <!-- Questão 3 -->
+    <h1>QUESTÃO 3</h1>
+    <p id="CorTexto">UM parágrafo para mudar de cor em cada momento apenas para teste da atividade</p>
+    <button ondblclick="document.getElementById('CorTexto').style.color = 'red'">vermelho</button>
+    <button ondblclick="document.getElementById('CorTexto').style.color = 'green'">verde</button>
+    <button ondblclick="document.getElementById('CorTexto').style.color = 'blue'">azul</button>
+
+    <!-- QUESTÃO 4 -->
+    <h2>Lista de Tarefas</h2>
+    <input type="text" id="tarefaInput" placeholder="Digite uma tarefa">
+    <button onclick="adicionarTarefa()">Adicionar</button>
+    <ul id="listaTarefas"></ul>
+
+    <!-- QUESTÃO 5 -->
+    <h2>Verificação de Número Par ou Ímpar</h2>
+    <input type="number" id="numero" placeholder="Digite um número">
+    <button onclick="verificarNumero()">Verificar</button>
+    <p id="resultado2"></p>
+
+
+    <script>
+        let peganome = () => {
+            let nome = document.getElementById("nome").value;
+            document.getElementById("escrevenm").innerText = nome;
+        }
+        let soma = () => {
+            let n1 = parseInt(document.getElementById('n1').value);
+            let n2 = parseInt(document.getElementById('n2').value);
+
+            document.getElementById("resultado").innerText = n1 + n2;
+        }
+        function adicionarTarefa() {
+            const input = document.getElementById("tarefaInput");
+            const texto = input.value.trim();
+
+            if (texto !== "") {
+                const li = document.createElement("li");
+                li.textContent = texto;
+                document.getElementById("listaTarefas").appendChild(li);
+                input.value = ""; // limpa o campo após adicionar
+            }
+        }
+
+        function verificarNumero() {
+            const numero = parseInt(document.getElementById("numero").value);
+            const resultado = document.getElementById("resultado2");
+
+            if (isNaN(numero)) {
+                resultado.textContent = "Por favor, digite um número válido.";
+            } else if (numero % 2 === 0) {
+                resultado.textContent = `O número ${numero} é PAR.`;
+            } else {
+                resultado.textContent = `O número ${numero} é ÍMPAR.`;
+            }
+        }
+
+    </script>
+</body>
+
+</html>

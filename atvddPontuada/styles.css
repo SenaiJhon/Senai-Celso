@@ -1,0 +1,60 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #000000; /* fundo preto */
+    color: #87cefa; /* azul claro para texto */
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 1.5em;
+    color: #1e90ff; /* azul vibrante para títulos */
+    margin-bottom: 10px;
+}
+
+div[class^="Q"] {
+    background-color: #0a0a0a;
+    border: 2px solid #1e90ff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(30, 144, 255, 0.3); /* sombra azul */
+    transition: transform 0.2s ease;
+}
+
+div[class^="Q"]:hover {
+    transform: scale(1.02);
+}
+
+input[type="number"],
+input[type="text"],
+input[type="password"] {
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #1e90ff;
+    border-radius: 6px;
+    width: 220px;
+    background-color: #111111;
+    color: #87cefa;
+}
+
+button {
+    padding: 10px 18px;
+    background-color: #1e90ff;
+    color: #000000;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #4682b4;
+}
+
+p {
+    margin-top: 10px;
+    font-size: 1em;
+    color: #add8e6;
+}

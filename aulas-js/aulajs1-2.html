@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS</title>
+</head>
+
+<body>
+    <input type="text" name="nome" id="nome" placeholder="DIGITE SEU NOME">
+    <button onclick="peganome()">Captura Nome</button><br>
+    <br>
+    <br>
+    <p id="escrevenm">aqui</p>
+    <br>
+    <button onclick="document.getElementById('escrevenm').style.color='red'">Cor da Letra</button>
+    <br>
+    <select id="corFundo" onchange="mudaCor()">
+        <option value="red">vermelho</option>
+        <option value="green">verde</option>
+        <option value="blue">azul</option>
+        <option value="yellow">Amarelo</option>
+    </select>
+
+    <script>
+        let peganome = () => {
+            let nome = document.getElementById("nome").value;
+            alert("OlÁ " + nome + "! BEM VINDO!!!");
+            document.getElementById("escrevenm").innerText += nome;
+        }
+
+        function mudaCor(){
+            let cor =  document.getElementById("corFundo").value;
+            document.body.style.backgroundColor= cor ;
+        }
+    </script>
+</body>
+
+</html>
