@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista de Materiais</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            border-bottom: 1px solid #ddd;
+            text-align: left;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>📋 Lista de Materiais</h1>
+        <table id="tabela-materiais">
+            <thead>
+                <tr>
+                    <th>Nome</th>
+                    <th>Descrição</th>
+                    <th>Preço</th>
+                    <th>Quantidade</th>
+                    <th>Unidade</th>
+                    <th>Categoria</th>
+                    <th>Fornecedor</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <a href="/" class="back-link">← Voltar ao Dashboard</a>
+    </div>
+
+    <script>
+        fetch("/api/materiais")
+            .then(res => res.json())
+            .then(data => {
+                const tbody = document.querySelector("#tabela-materiais tbody");
+                data.forEach(mat => {
+                    const row = document.createElement("tr");
+                    row.innerHTML = `
+            <td>${mat.nome}</td>
+            <td>${mat.descricao}</td>
+            <td>R$ ${parseFloat(mat.preco).toFixed(2)}</td>
+            <td>${mat.quantidade}</td>
+            <td>${mat.unidade}</td>
+            <td>${mat.categoria}</td>
+            <td>${mat.fornecedor}</td>
+          `;
+                    tbody.appendChild(row);
+                });
+            })
+            .catch(err => {
+                console.error("Erro ao carregar materiais:", err);
+            });
+    </script>
+</body>
+
+</html>

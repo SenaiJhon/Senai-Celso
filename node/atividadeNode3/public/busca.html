@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscar Materiais - Construtora Pedra Forte</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        input[type="text"] {
+            flex: 1;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 12px 24px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .btn-secondary {
+            background-color: #757575;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .btn-secondary:hover {
+            background-color: #616161;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th,
+        td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+        }
+
+        .no-results {
+            text-align: center;
+            padding: 20px;
+            color: #666;
+        }
+
+        .nav-buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .nav-buttons a {
+            margin: 0 10px;
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .nav-buttons a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="/" class="btn-secondary">← Voltar</a>
+        <h1>Buscar Materiais</h1>
+
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Digite o nome do material...">
+            <button onclick="buscarMateriais()">Buscar</button>
+        </div>
+
+        <div id="loading" class="loading" style="display: none;">Buscando...</div>
+        <div id="results"></div>
+
+        <div class="nav-buttons">
+            <a href="/cadastro">Cadastrar Novo Material</a>
+            <a href="/lista">Ver Lista Completa</a>
+        </div>
+    </div>
+
+    <script>
+        async function buscarMateriais() {
+            const searchTerm = document.getElementById('searchInput').value.trim();
+
+            if (!searchTerm) {
+                alert('Por favor, digite um termo para busca');
+                return;
+            }
+
+            document.getElementById('loading').style.display = 'block';
+            document.getElementById('results').innerHTML = '';
+
+            try {
+                const response = await fetch(`/api/buscar?nome=${encodeURIComponent(searchTerm)}`);
+                const materiais = await response.json();
+
+                document.getElementById('loading').style.display = 'none';
+
+                if (materiais.length === 0) {
+                    document.getElementById('results').innerHTML = '<div class="no-results">Nenhum material encontrado.</div>';
+                    return;
+                }
+
+                let html = '<table><thead><tr><th>ID</th><th>Nome</th><th>Categoria</th><th>Quantidade</th><th>Unidade</th><th>Preço (R$)</th><th>Fornecedor</th></tr></thead><tbody>';
+
+                materiais.forEach(material => {
+                    html += `
+                            <tr>
+                                <td>${material.id}</td>
+                                <td>${material.nome}</td>
+                                <td>${material.categoria || '-'}</td>
+                                <td>${material.quantidade}</td>
+                                <td>${material.unidade}</td>
+                                <td>R$ ${parseFloat(material.preco).toFixed(2)}</td>
+                                <td>${material.fornecedor || '-'}</td>
+                            </tr>
+                        `;
+                });
+
+                html += '</tbody></table>';
+                document.getElementById('results').innerHTML = html;
+
+            } catch (error) {
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('results').innerHTML = '<div class="error">Erro ao buscar materiais.</div>';
+                console.error('Erro:', error);
+            }
+        }
+
+        // Permitir busca com Enter
+        document.getElementById('searchInput').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                buscarMateriais();
+            }
+        });
+    </script>
+    <script src="../app.js"></script>
+</body>
+
+</html>
