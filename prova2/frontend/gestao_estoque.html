@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SAEP | Gestão de Estoque</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="main-header">
+        <h1>SAEP - Gestão de Estoque</h1>
+        <div class="user-info">
+            <a href="home.html" class="btn-secondary">← Voltar para Home</a>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="card form-section">
+            <h3>Registrar Movimentação de Estoque</h3>
+            <form id="movimentacaoForm">
+                
+                <div class="input-grid">
+                    <div class="input-group">
+                        <label for="produtoSelect">Produto:</label>
+                        <select id="produtoSelect" required>
+                            <option value="">Selecione um produto...</option>
+                        </select>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="tipoMovimentacao">Tipo de Movimentação:</label>
+                        <select id="tipoMovimentacao" required>
+                            <option value="">Selecione...</option>
+                            <option value="ENTRADA">ENTRADA (Aumentar)</option>
+                            <option value="SAIDA">SAÍDA (Reduzir)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="input-group">
+                        <label for="quantidade">Quantidade:</label>
+                        <input type="number" id="quantidade" required min="1">
+                    </div>
+
+                    <div class="input-group">
+                        <label for="dataMovimentacao">Data da Movimentação:</label>
+                        <input type="date" id="dataMovimentacao" required>
+                    </div>
+                </div>
+
+                <div class="input-group">
+                    <label for="observacao">Observação (Motivo da movimentação - RF09):</label>
+                    <textarea id="observacao"></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="submit" class="btn-primary">Registrar Movimentação</button>
+                    <p id="movimentacaoFeedback" class="mensagem" style="display:none;"></p>
+                </div>
+            </form>
+        </section>
+
+        <hr>
+
+        <section class="card list-section">
+            <h3>Níveis de Estoque (Ordenado Alfabeticamente - RF11)</h3>
+            
+            <table id="estoqueTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome do Produto</th>
+                        <th>Estoque Atual</th>
+                        <th>Estoque Mínimo</th>
+                        <th>Status (RF10)</th>
+                        <th>Unidade</th>
+                    </tr>
+                </thead>
+                <tbody id="estoqueTableBody">
+                </tbody>
+            </table>
+        </section>
+    </main>
+
+    <script src="gestao_estoque.js"></script>
+</body>
+</html>
